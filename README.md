@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Next.JS MobileApp Capacitor Sample
+===========
 
-## Getting Started
+Instruction based on this [Youtube video](https://www.youtube.com/watch?v=S55BrlnLup8&t=552s)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Instruction
+-------------
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+npm i @capacitor/core
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+npm i -D @capacitor/cli
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+npx cap init
 
-## Learn More
+npm i @capacitor/android @capacitor/ios
 
-To learn more about Next.js, take a look at the following resources:
+npm run build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+npx cap add android
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+npx cap add ios
 
-## Deploy on Vercel
+npx cap sync
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### a fix for ios to complete pod install:
+* clone [https://github.com/CocoaPods/Xcodeproj](https://github.com/CocoaPods/Xcodeproj)
+* edit Gemfile.lock and xcodeproj.gemspec changing rexml version to 3.3.0
+* run rake build
+* run gem install rexml -v 3.3.0 (I did this with and without sudo)
+* run gem install --local pkg/xcodeproj-1.24.0.gem (I did this with and without sudo)
+* running again pod install in project folder and now completes normally
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+npx cap open android
+
+npx cap open ios
+
+after nextjs code changes
+------------
+
+npm run build
+Todo: npm run static
+
+npx cap sync
+
+Todo: check params in nextjs.config.README
+Todo: transfer nextjs-mydirectory:develop-capacitor
+
+
+

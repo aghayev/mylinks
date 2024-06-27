@@ -1,0 +1,8 @@
+{
+  "appId": "app.aghayev.com",
+  "appName": "nextjs-mobile",
+  "webDir": "out",
+  "server": {
+    "androidScheme": "https"
+  }
+}
