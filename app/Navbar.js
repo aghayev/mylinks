@@ -1,12 +1,13 @@
-import { accordionData } from "./accordiondata";
 import Accordion from "./Accordion";
 
-const Navbar = () => {
+const Navbar = async () => {
   let x=['accordion'];
+  const res = await fetch('https://mylinks.aghayev.com/categories')
+  const categories = await res.json()
   return (
     <nav>
       <ul className={x.join(" ")}>
-        {accordionData.map(({ title, content }) => (
+        {categories.map(({ title, content }) => (
           <Accordion title={title} content={content} key={title} />
         ))}
       </ul>
