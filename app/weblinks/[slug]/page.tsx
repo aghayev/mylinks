@@ -10,12 +10,12 @@ export async function generateStaticParams() {
   const res = await fetch('https://mylinks.aghayev.com/api')
   const categories = await res.json()
  
-  return categories.map(({ title }) => ({
-    slug: title,
+  return categories.map(({ slug }) => ({
+    slug: slug,
   }))
 }
 
-const UsersPage = async ({ params }) => {
+const WeblinksPage = async ({ params }) => {
   const { slug } = params
   console.info(slug)
 
@@ -24,10 +24,10 @@ const UsersPage = async ({ params }) => {
 
   return (
     <>
-      <h1>UsersPage</h1>
+      <h1>WeblinksPage</h1>
       <ul>{users.map(user => <li key={user.id}>{user.name}</li>)}</ul>
     </>
   )
 }
 
-export default UsersPage
+export default WeblinksPage

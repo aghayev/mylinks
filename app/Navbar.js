@@ -2,7 +2,7 @@ import Accordion from "./Accordion";
 
 const Navbar = async () => {
   let x=['accordion'];
-  const res = await fetch('https://mylinks.aghayev.com/categories')
+  const res = await fetch('https://mylinks.aghayev.com/api')
   const categories = await res.json()
   return (
     <nav>
