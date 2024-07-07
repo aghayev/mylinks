@@ -5,9 +5,9 @@ id: number;
 name: string;
 }
 
-// Return a list of `params` to populate the [slug] dynamic segment
+// SSG - Static Site Generation, page paths depends on external data
 export async function generateStaticParams() {
-  const res = await fetch('https://mylinks.aghayev.com/api/subcategories')
+  const res = await fetch('https://mylinks.aghayev.com/api/subcategories',{ next: { revalidate: 10 } })
   const categories = await res.json()
  
   return categories.map(({ slug }) => ({
@@ -24,7 +24,7 @@ const weblinks = await res.json()
   return (
     <>
       <h1>WeblinksPage</h1>
-      <ul>{weblinks.map(weblink => <li>{weblink.title} {weblink.content} {weblink.date}</li>)}</ul>
+      <ul>{weblinks.map(weblink => <li><a href={weblink.content}>{weblink.title} - updated: {weblink.date}</a></li>)}</ul>
     </>
   )
 }
