@@ -5,7 +5,8 @@ id: number;
 name: string;
 }
 
-// Return a list of `params` to populate the [slug] dynamic segment
+// This is called SSG - Static Site Generation. 
+// The following video tutorial, https://www.youtube.com/watch?v=E1HzFvXgrCs says that SSG is recommended to do over SSR (SSR stands for Server Side Rendering)
 export async function generateStaticParams() {
   const res = await fetch('https://mylinks.aghayev.com/api/subcategories')
   const categories = await res.json()
