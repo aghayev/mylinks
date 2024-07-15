@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { fetchData } from '../../services/weblinksData'
+import './page.css';
 
 interface User {
 id: number;
@@ -19,14 +21,13 @@ export async function generateStaticParams() {
 const WeblinksPage = async ({ params }) => {
   const { slug } = params
 
-const res = await fetch(`https://mylinks.aghayev.com/api/weblinks/${slug}`, {method: 'GET'})
-const weblinks = await res.json()
+  const weblinks = await fetchData(slug);
 
   return (
-    <>
+    <div id="weblinks">
       <h1>WeblinksPage</h1>
       <ul>{weblinks.map(weblink => <li><a href={weblink.content}>{weblink.title} - updated: {weblink.date}</a></li>)}</ul>
-    </>
+    </div>
   )
 }
 

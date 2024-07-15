@@ -15,6 +15,11 @@ const Accordion = ({ title, content }) => {
       setScrolled(false);
     }
   }
+
+  function handleClick() {
+    setIsActive(!isActive)
+  }
+
   useEffect(() => {
     window.addEventListener('scroll',handleScroll)
   })
@@ -25,7 +30,7 @@ const Accordion = ({ title, content }) => {
   }
   return (
     <li className={x.join(" ")}>
-      <div className="accordion-toggle" onClick={() => setIsActive(!isActive)}>
+      <div className="accordion-toggle" onClick={handleClick}>
         <h3>{title}</h3><span>{isActive ? "-" : "+"}</span>
       </div>
       {isActive && content.map(({ title, url }) => (
