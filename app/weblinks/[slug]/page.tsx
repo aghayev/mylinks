@@ -25,7 +25,7 @@ const WeblinksPage = async ({ params }) => {
 
   return (
     <div id="weblinks">
-      <h1>WeblinksPage</h1>
+      <h1>WeblinksPage: {slug}</h1>
       <ul>{weblinks.map(weblink => <li><a href={weblink.content}>{weblink.title} - updated: {weblink.date}</a></li>)}</ul>
     </div>
   )
