@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { fetchData } from '../../services/weblinksData'
+import { fetchData } from '../../services/weblinksData';
+import AppConfig from '../../lib/appconfg';
 import './page.css';
 
 interface User {
@@ -10,7 +11,7 @@ name: string;
 // This is called SSG - Static Site Generation. 
 // The following video tutorial, https://www.youtube.com/watch?v=E1HzFvXgrCs says that SSG is recommended to do over SSR (SSR stands for Server Side Rendering)
 export async function generateStaticParams() {
-  const res = await fetch('https://mylinks.aghayev.com/api/subcategories',{ next: { revalidate: 10 } })
+  const res = await fetch(AppConfig.publicUrlWithCategories,{ next: { revalidate: 10 } })
   const categories = await res.json()
  
   return categories.map(({ slug }) => ({

@@ -15,8 +15,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { publicRuntimeConfig } = getConfig();
-
   return (
     <html lang="en">
       <head>
@@ -29,7 +27,7 @@ export default function RootLayout({
         <div className={styles.rightPlacement}>
         {children}
         </div>
-        <div className={styles.trailer}>All rights reserved. Release version: {publicRuntimeConfig?.version}</div>
+        <div className={styles.trailer}>All rights reserved. Release version: local_build</div>
       </body>
     </html>
   );
