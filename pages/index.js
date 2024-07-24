@@ -6,54 +6,25 @@ import styles from './styles/layout.module.css';
 
 const inter = Inter({ subsets: ['latin'] })
 
-async function fetchCategories() {
-//  const res = await fetch('https://mylinks.aghayev.com/api',{ next: { revalidate: 10 } })
-//  const categories = await res.json()
-/*
-  return (
-    <nav>
-      <ul className={x.join(" ")}>
-        {categories.map(({ title, content }) => (
-          <Accordion title={title} content={content} key={title} />
-        ))}
-      </ul>
-    </nav>
-  );
+export async function getStaticProps() {
+  const res = await fetch('https://jsonplaceholder.typicode.com/users');
+  const categories = await res.json();
 
-   return (
-  <>
-  <main>
-      <head>
-        <title>Mylinks Pages Router example</title>
-      </head>
-      <body>
-      <Header />
-        <Navbar />
-        <div className={styles.leftPlacement}></div>
-        <div className={styles.rightPlacement}>
-        {children}
-        </div>
-        <div className={styles.trailer}>All rights reserved. Release version: local_build</div>
-      </body>
-    </main>
-  </>
- )
-            <li key={user.id}>{user.name}</li>
-
-  */    
-    const res = await fetch('https://mylinks.aghayev.com/api/?dfafadf');
-    const categories = await res.json();
-    return categories;
+  return {
+    props: {
+      categories,
+    },
+  }
 }
 
-export default function Home() {
+export default function Home({ categories }) {
     let x=['accordion'];
 
     const [scrolled,setScrolled]=React.useState(false);
 
     useEffect(() => {
         setScrolled(false);
-        {fetchCategories().then(category => {
+        {categories.map(category => {
             console.info(category)
     })}
       })
