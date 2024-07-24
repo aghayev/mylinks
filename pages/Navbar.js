@@ -1,20 +1,13 @@
-import Accordion from "./Accordion";
 
-const Navbar = async () => {
+const Navbar = () => {
   let x=['accordion'];
 
-  // ISR - Incremental Static Regeneration, page content depends on external data
-  const res = await fetch('https://mylinks.aghayev.com/api',{ next: { revalidate: 10 } })
-  const categories = await res.json()
   return (
-    <nav>
-      <ul className={x.join(" ")}>
-        {categories.map(({ title, content }) => (
-          <Accordion title={title} content={content} key={title} />
-        ))}
-      </ul>
-    </nav>
+    <div>
+      hello world2
+    </div>
   );
+
 };
 
 export default Navbar;
