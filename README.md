@@ -1,6 +1,12 @@
 Next.JS MobileApp Capacitor Sample
 ===========
 
+Data fetching functions like getServerSideProps and getStaticProps have been replaced with a new API inside app. getStaticPaths has been replaced with generateStaticParams.
+
+Source: https://nextjs.org/docs/app/building-your-application/upgrading/app-router-migration
+
+
+
 Instruction based on this [Youtube video](https://www.youtube.com/watch?v=S55BrlnLup8&t=552s)
 
 
