@@ -1,8 +1,7 @@
 import Header from "./Header";
 import Navbar from "./Navbar";
-import './globals.css';
 import styles from './layout.module.css';
-import getConfig from 'next/config';
+import './globals.css';
 import "./Navbar.css";
 
 export const metadata = {
