@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">nextjs-mobile</string>
     <string name="title_activity_main">nextjs-mobile</string>
-    <string name="package_name">com.example.app</string>
-    <string name="custom_url_scheme">com.example.app</string>
+    <string name="package_name">app.aghayev.com</string>
+    <string name="custom_url_scheme">app.aghayev.com</string>
 </resources>
