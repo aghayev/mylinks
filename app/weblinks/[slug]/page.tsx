@@ -8,10 +8,12 @@ id: number;
 name: string;
 }
 
-// This is called SSG - Static Site Generation. 
-// The following video tutorial, https://www.youtube.com/watch?v=E1HzFvXgrCs says that SSG is recommended to do over SSR (SSR stands for Server Side Rendering)
+/** 
+ * Used generateStaticParams, SSG - Static Site Generation
+ * Source: https://www.youtube.com/watch?v=E1HzFvXgrCs 
+ */
 export async function generateStaticParams() {
-  const res = await fetch(AppConfig.publicUrlWithCategories,{ next: { revalidate: 10 } })
+  const res = await fetch(AppConfig.publicUrlSubCategories,{ next: { revalidate: 10 } })
   const categories = await res.json()
  
   return categories.map(({ slug }) => ({
@@ -22,7 +24,7 @@ export async function generateStaticParams() {
 const WeblinksPage = async ({ params }) => {
   const { slug } = params
 
-  const weblinks = await fetchData(slug);
+  const weblinks = await fetchData(slug)
 
   return (
     <div id="weblinks">

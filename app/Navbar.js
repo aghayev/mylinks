@@ -4,7 +4,10 @@ import AppConfig from './lib/appconfg'
 const Navbar = async () => {
   let x=['accordion'];
 
-// This is called ISR - Incremental Static Regeneration
+/** 
+ * Used fetch - revalidate, ISR - Incremental Static Regeneration
+ * Source: https://www.youtube.com/watch?v=E1HzFvXgrCs 
+ */
   const res = await fetch(AppConfig.publicUrl, { next: { revalidate: 10 } })
   const categories = await res.json()
   return (
