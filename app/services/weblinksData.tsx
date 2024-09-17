@@ -1,5 +1,8 @@
+import AppConfig from "../lib/appconfg";
 
 export const fetchData = async (slug: string) => {
-    const res = await fetch(`https://mylinks.aghayev.com/api/weblinks/${slug}`, {method: 'GET'})
+    const slugUrl = `${AppConfig.publicUrlWithSlug}/${slug}`
+
+    const res = await fetch(slugUrl, {method: 'GET'})
     return await res.json()
-};
+}
