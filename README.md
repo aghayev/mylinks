@@ -1,4 +1,5 @@
 Next.JS MobileApp Capacitor Sample
+https://capacitorjs.com/docs/ios
 ===========
 
 Data fetching functions like getServerSideProps and getStaticProps have been replaced with a new API inside app. getStaticPaths has been replaced with generateStaticParams.
@@ -45,13 +46,12 @@ npx cap open ios
 after nextjs code changes
 ------------
 
-npm run build
-Todo: npm run static
+npm run build [ npm run static ]
 
 npx cap sync
 
-Todo: check params in nextjs.config.README
-Todo: transfer nextjs-mydirectory:develop-capacitor
+TODO:
+------------
 
-
+How to use microphone in capacitor: https://medium.com/@kl.yap/how-to-enable-microphone-camera-access-on-capacitor-ios-app-a099fa87bb94
 
