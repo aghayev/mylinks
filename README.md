@@ -52,6 +52,7 @@ npx cap sync
 
 TODO:
 ------------
-
-How to use microphone in capacitor: https://medium.com/@kl.yap/how-to-enable-microphone-camera-access-on-capacitor-ios-app-a099fa87bb94
+1. Push Notifications: https://www.youtube.com/watch?v=SbZ9ep0NpfY
+2. Video Capture: https://www.youtube.com/watch?v=HoX5b64qNrs
+2. Microphone access: https://medium.com/@kl.yap/how-to-enable-microphone-camera-access-on-capacitor-ios-app-a099fa87bb94
 

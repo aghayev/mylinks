@@ -24,7 +24,7 @@ const Header = () => {
   }
   return (
     <header className={x.join(" ")}>
-      <Link href="/" className="title">
+      <Link href="/protected" className="title">
         My Links
       </Link>
     </header>
