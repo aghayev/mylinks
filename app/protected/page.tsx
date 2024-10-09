@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
 import styles from './layout.module.css'
+import { mobileStorageUtil } from '../lib/MobileStorageUtil'
 
 function ProtectedPage() {
   const [statusText, setStatusText] = useState('')
@@ -23,6 +24,7 @@ function ProtectedPage() {
     
       if (response.ok) {
         setStatusText('Success')
+        mobileStorageUtil.set('token', 'jwttoken')
         router.push('/')
       } else {
         setStatusText('Error occured')
