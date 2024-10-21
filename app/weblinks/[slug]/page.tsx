@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { fetchData } from '../../services/weblinksData';
-import AppConfig from '../../lib/appconfg';
-import './page.css';
+import React, { useEffect, useState } from "react"
+import { fetchData } from '../../services/weblinksData'
+import AppConfig from '../../lib/appconfg'
+import './page.css'
 
 interface User {
 id: number;

@@ -3,10 +3,18 @@ import { useState } from 'react'
 import { FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
 import styles from './layout.module.css'
+import { Preferences } from '@capacitor/preferences'
 
 function ProtectedPage() {
   const [statusText, setStatusText] = useState('')
   const router = useRouter()
+
+    const setToken = async () => {
+      await Preferences.set({
+        key: 'token',
+        value: 'jwttoken',
+      })
+    }
 
     const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault()
@@ -20,9 +28,10 @@ function ProtectedPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
       })
-    
+      
       if (response.ok) {
         setStatusText('Success')
+        setToken()
         router.push('/')
       } else {
         setStatusText('Error occured')
