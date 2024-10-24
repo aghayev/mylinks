@@ -2,19 +2,12 @@
 import { useState } from 'react'
 import { FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
+import { setToken } from '../lib/token'
 import styles from './layout.module.css'
-import { Preferences } from '@capacitor/preferences'
 
 function ProtectedPage() {
   const [statusText, setStatusText] = useState('')
   const router = useRouter()
-
-    const setToken = async () => {
-      await Preferences.set({
-        key: 'token',
-        value: 'jwttoken',
-      })
-    }
 
     const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault()
