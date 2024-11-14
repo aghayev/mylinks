@@ -1,5 +1,5 @@
 import Accordion from "./Accordion";
-import AppConfig from './lib/appconfg'
+import AppConfig from './lib/appconfig';
 
 const Navbar = async () => {
   let x=['accordion'];

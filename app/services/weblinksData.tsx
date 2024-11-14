@@ -1,4 +1,4 @@
-import AppConfig from "../lib/appconfg";
+import AppConfig from "../lib/appconfig";
 
 export const fetchData = async (slug: string) => {
     const slugUrl = `${AppConfig.publicUrlWeblinksPerSlug}/${slug}`

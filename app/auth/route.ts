@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import AppConfig from "../lib/appconfg";
+import AppConfig from "../lib/appconfig";
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
