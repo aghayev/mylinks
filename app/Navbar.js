@@ -1,15 +1,34 @@
+'use client'
 import Accordion from "./Accordion";
-import AppConfig from './lib/appconfig';
+import React, { useState, useEffect } from "react";
+import { getCookieByName } from './lib/utils'
 
-const Navbar = async () => {
+const Navbar = () => {
+
+  const bb = async function fetchCategories() {
+    let res = await fetch('/api/navbar')
+    let data = await res.json()
+    return data
+  }
+
+  const [categories, setCategories] = useState(null)
   let x=['accordion'];
+    
+  useEffect(() => {
+    setCategories(null)
+  }, [])
 
-/** 
- * Used fetch - revalidate, ISR - Incremental Static Regeneration
- * Source: https://www.youtube.com/watch?v=E1HzFvXgrCs 
- */
-  const res = await fetch(AppConfig.publicUrl, { next: { revalidate: 10 } })
-  const categories = await res.json()
+  if (!categories) return <div>Loading...</div>
+
+  const read = getCookieByName('auth')
+  if (read) {
+    const cc = fetchCategories()
+    setCategories(cc)
+  }
+
+  console.info('read')
+  console.info(read)
+
   return (
     <nav>
       <ul className={x.join(" ")}>

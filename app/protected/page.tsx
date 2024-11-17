@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
 import styles from './layout.module.css'
+import { addCookie } from '../lib/utils'
 
 function ProtectedPage() {
   const [statusText, setStatusText] = useState('')
@@ -22,6 +23,7 @@ function ProtectedPage() {
       })
     
       if (response.ok) {
+        addCookie('auth','yes')
         setStatusText('Success')
         router.push('/')
       } else {
