@@ -1,0 +1,32 @@
+  /* navigation accordion */  
+  .accordion {
+    position: fixed;
+    top: 45px;
+    left: 0;
+    max-width: 120px;
+  }
+  
+  .accordion-item {
+    background-color: #eee;
+    list-style: none;
+  }
+  .accordion-item-scrolled {
+    background-color: lightblue;
+  }
+  .accordion-toggle {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1em;
+  }
+  .accordion-toggle:hover {
+   background-color: #ddd;
+  }
+  .accordion-toggle h3 {
+    margin: 0;
+  }
+  .accordion-content {
+    background-color: #F4F6F6;
+    padding: 1em;
+  }

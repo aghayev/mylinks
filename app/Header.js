@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect } from 'react';
 import Link from "next/link";
+import styles from './layout.module.css';
 
 const Header = () => {
   const [scrolled,setScrolled]=React.useState(false);
@@ -18,13 +19,12 @@ const Header = () => {
     window.addEventListener('scroll',handleScroll)
   })
 
-  let x=['header'];
-  if(scrolled){
-    x.push('header-scrolled');
-  }
+  const ifScrolled = scrolled ? '' : styles.headerScrolled
+  const classes = `${styles.header} ${ifScrolled}`
+
   return (
-    <header className={x.join(" ")}>
-      <Link href="/protected" className="title">
+    <header className={classes}>
+      <Link href="/protected" className={styles.linkTitle}>
         My Links
       </Link>
     </header>
