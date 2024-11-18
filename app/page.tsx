@@ -2,13 +2,11 @@
 import React, { FormEvent, useState } from "react";
 import { Outlet } from "react-router-dom";
 import styles from "./layout.module.css";
-import { addCookie, getCookieByName } from "./lib/utils";
-import { useTheme } from "./context/ThemeContext";
+import { useMy } from "./context/MyContext";
 
 export default function Home() {
   const [statusText, setStatusText] = useState("");
-  const read = getCookieByName("auth") ?? null;
-  const { theme, toggleTheme } = useTheme();
+  const { setMymessage } = useMy();
 
   const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -24,8 +22,7 @@ export default function Home() {
     });
 
     if (response.ok) {
-      addCookie("auth", "yes");
-      toggleTheme();
+      setMymessage('supero');
       setStatusText("Success");
     } else {
       setStatusText("Error occured");

@@ -8,10 +8,10 @@ const Header = () => {
 
   const handleScroll=() => {
     const offset=window.scrollY;
-    if(offset > 200 ){
+    if (offset > 200 ) {
       setScrolled(true);
     }
-    else{
+    else {
       setScrolled(false);
     }
   }
@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <header className={classes}>
-      <Link href="/protected" className={styles.linkTitle}>
+      <Link href="/" className={styles.linkTitle}>
         My Links
       </Link>
     </header>

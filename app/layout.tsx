@@ -2,7 +2,7 @@ import Header from "./Header";
 import styles from './layout.module.css';
 import './globals.css';
 import Navbar from "./components/Navbar";
-import { ThemeProvider } from './context/ThemeContext'
+import { MyProvider } from './context/MyContext'
 
 export const metadata = {
   title: "Mobile App Mylinks",
@@ -20,7 +20,7 @@ export default function RootLayout({
         <title>My Links by Imran Aghayev</title>
       </head>
       <body>
-        <ThemeProvider>
+        <MyProvider>
       <div className={styles.leftPlacement}>
         <Navbar />
         </div>
@@ -29,7 +29,7 @@ export default function RootLayout({
         {children}
         </div>
         <div className={styles.trailer}>All rights reserved. Release version: local_build</div>
-        </ThemeProvider>
+        </MyProvider>
       </body>
     </html>
   );
