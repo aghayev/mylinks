@@ -1,12 +1,16 @@
 'use client'
 import Accordion from "./Accordion";
-import React, { useState, useEffect } from "react";
-import { getCookieByName } from '../lib/utils'
+import React, { useState, useEffect, useContext } from "react";
+import { getCookieByName } from '../lib/utils';
+import { useTheme } from "../context/ThemeContext";
+
 import "./Accordion.css";
 
 const Navbar = () => {
   const read = getCookieByName('auth')
   const [categories, setCategories] = useState(null)
+  const { theme } = useTheme();
+
   let x=['accordion'];
 
   async function fetchCategories() {
@@ -14,7 +18,7 @@ const Navbar = () => {
     let data = await res.json()
     setCategories(data)
   }
-  
+
   useEffect(() => {
     read && fetchCategories()
   }, [read])
