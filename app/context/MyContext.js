@@ -1,7 +1,7 @@
 'use client'
 import { createContext, useContext, useState } from 'react';
 
-export const MyContext = createContext(null);
+export const MyContext = createContext();
 
 export function MyProvider({children}) {
 const [mymessage, setMymessage] = useState("");

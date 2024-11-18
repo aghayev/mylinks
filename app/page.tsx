@@ -6,7 +6,7 @@ import { useMy } from "./context/MyContext";
 
 export default function Home() {
   const [statusText, setStatusText] = useState("");
-  const { setMymessage } = useMy();
+  const { mymessage, setMymessage } = useMy();
 
   const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
