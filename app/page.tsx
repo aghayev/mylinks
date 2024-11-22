@@ -42,7 +42,7 @@ export default function Home() {
                     type="text"
                     name="username"
                     className={styles.inputText}
-                    placeholder="Usernme"
+                    placeholder="Username"
                     required
                   />
                 </label>
