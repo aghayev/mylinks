@@ -21,11 +21,11 @@ export default function RootLayout({
       </head>
       <body>
         <MyProvider>
-      <div className={styles.leftPlacement}>
+        <Header />
+        <div className={styles.leftPlacement}>
         <Navbar />
         </div>
         <div className={styles.rightPlacement}>
-      <Header />
         {children}
         </div>
         <div className={styles.trailer}>All rights reserved. Release version: local_build</div>

@@ -48,6 +48,8 @@
 
 .rightPlacement {
   display: inline-block;
+  text-align:left;
+  vertical-align:top;
   width: 65%;
 }
 

@@ -1,12 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { fetchData } from '../../services/weblinksData';
 import AppConfig from '../../lib/appconfig';
 import './page.css';
-
-interface User {
-id: number;
-name: string;
-}
 
 /** 
  * Used generateStaticParams, SSG - Static Site Generation
@@ -27,7 +22,7 @@ const WeblinksPage = async ({ params }) => {
   const weblinks = await fetchData(slug)
 
   return (
-    <div id="weblinks">
+    <div className="weblinks">
       <h1>WeblinksPage: {slug}</h1>
       <ul>{weblinks.map(weblink => <li><a href={weblink.content}>{weblink.title} - updated: {weblink.date}</a></li>)}</ul>
     </div>
