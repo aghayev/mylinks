@@ -9,9 +9,11 @@
     background-color: #eee;
     list-style: none;
   }
+
   .accordion-item-scrolled {
     background-color: lightblue;
   }
+
   .accordion-toggle {
     cursor: pointer;
     display: flex;
@@ -19,12 +21,15 @@
     justify-content: space-between;
     padding: 1em;
   }
+
   .accordion-toggle:hover {
    background-color: #ddd;
   }
+
   .accordion-toggle h3 {
     margin: 0;
   }
+  
   .accordion-content {
     background-color: #F4F6F6;
     padding: 1em;
