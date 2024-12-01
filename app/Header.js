@@ -1,5 +1,6 @@
 'use client'
 import React, { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from "next/link";
 import styles from './layout.module.css';
 import { useMy } from "./context/MyContext";
@@ -7,6 +8,7 @@ import { useMy } from "./context/MyContext";
 const Header = () => {
   const [scrolled,setScrolled]=React.useState(false);
   const { mymessage, setMymessage } = useMy();
+  const router = useRouter();
 
   const handleScroll=() => {
     const offset=window.scrollY;
@@ -19,7 +21,8 @@ const Header = () => {
   }
 
   const logout = () => {
-    setMymessage('supero');
+    setMymessage('');
+    router.push('/')
   }
 
   useEffect(() => {

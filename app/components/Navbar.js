@@ -17,7 +17,7 @@ const Navbar = () => {
   }
 
   useEffect(() => {
-    mymessage && fetchCategories()
+    mymessage ? fetchCategories() : setCategories([])
   }, [mymessage])
 
   if (!categories) return <div>Categories loading...</div>
