@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import styles from "./layout.module.css";
 import { useMy } from "./context/MyContext";
 import AppConfig from "./lib/appconfig";
+import { getHostname } from "./lib/utils";
 
 export default function Home() {
   const [statusText, setStatusText] = useState("");
@@ -11,6 +12,8 @@ export default function Home() {
 
   const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (getHostname() !== 'localhost') {
 
     const formData = new FormData(event.currentTarget);
     const username = formData.get("username");
@@ -26,6 +29,8 @@ export default function Home() {
     } else {
       setStatusText("Error occured");
     }
+    }
+    else setMymessage('supero');
   };
 
   const LoginComponent = () => {
