@@ -3,6 +3,7 @@ import React, { FormEvent, useState } from "react";
 import { Outlet } from "react-router-dom";
 import styles from "./layout.module.css";
 import { useMy } from "./context/MyContext";
+import AppConfig from "./lib/appconfig";
 
 export default function Home() {
   const [statusText, setStatusText] = useState("");
@@ -15,11 +16,9 @@ export default function Home() {
     const username = formData.get("username");
     const password = formData.get("password");
 
-    const response = await fetch("/api/auth", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
-    });
+    const loginRequest = `${AppConfig.authUrl}?user=${username}&pwd=${password}`
+      
+    const response = await fetch(loginRequest, { cache: "no-store" })
 
     if (response.ok) {
       setMymessage('supero');
