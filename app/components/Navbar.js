@@ -1,6 +1,7 @@
 'use client'
 import Accordion from "./Accordion";
 import React, { useState, useEffect } from "react";
+import { isMobile } from "./../lib/utils";
 import { useMy } from "../context/MyContext";
 
 import "./Accordion.css";
@@ -17,7 +18,8 @@ const Navbar = () => {
   }
 
   useEffect(() => {
-    mymessage ? fetchCategories() : setCategories([])
+    const doAuth = !!(mymessage || isMobile())
+    doAuth ? fetchCategories() : setCategories([])
   }, [mymessage])
 
   if (!categories) return <div>Categories loading...</div>

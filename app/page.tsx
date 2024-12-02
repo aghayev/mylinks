@@ -4,10 +4,11 @@ import { Outlet } from "react-router-dom";
 import styles from "./layout.module.css";
 import { useMy } from "./context/MyContext";
 import AppConfig from "./lib/appconfig";
-import { getHostname } from "./lib/utils";
+import { getHostname, isMobile } from "./lib/utils";
 
 export default function Home() {
   const { mymessage, setMymessage, statusText, setStatusText } = useMy();
+  const doAuth = !!(mymessage || isMobile())
 
   const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -86,5 +87,5 @@ export default function Home() {
     )
   }
 
-return mymessage ? OutletComponent() : LoginComponent()
+return doAuth ? OutletComponent() : LoginComponent()
 }
