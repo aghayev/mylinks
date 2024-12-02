@@ -4,10 +4,12 @@ import { createContext, useContext, useState } from 'react';
 export const MyContext = createContext();
 
 export function MyProvider({children}) {
-const [mymessage, setMymessage] = useState("");
+    const [statusText, setStatusText] = useState("");
+    const [mymessage, setMymessage] = useState("");
+
 
 return (
-    <MyContext.Provider value={{ mymessage, setMymessage }}>
+    <MyContext.Provider value={{ mymessage, setMymessage, statusText, setStatusText }}>
         {children}
     </MyContext.Provider>
     )

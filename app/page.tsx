@@ -7,8 +7,7 @@ import AppConfig from "./lib/appconfig";
 import { getHostname } from "./lib/utils";
 
 export default function Home() {
-  const [statusText, setStatusText] = useState("");
-  const { mymessage, setMymessage } = useMy();
+  const { mymessage, setMymessage, statusText, setStatusText } = useMy();
 
   const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -30,7 +29,10 @@ export default function Home() {
       setStatusText("Error occured");
     }
     }
-    else setMymessage('supero');
+    else {
+      setMymessage('supero');
+      setStatusText("Success");
+    }
   };
 
   const LoginComponent = () => {

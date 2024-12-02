@@ -7,7 +7,7 @@ import { useMy } from "./context/MyContext";
 
 const Header = () => {
   const [scrolled,setScrolled]=React.useState(false);
-  const { mymessage, setMymessage } = useMy();
+  const { mymessage, setMymessage, setStatusText } = useMy();
   const router = useRouter();
 
   const handleScroll=() => {
@@ -22,6 +22,7 @@ const Header = () => {
 
   const logout = () => {
     setMymessage('');
+    setStatusText('');
     router.push('/')
   }
 
