@@ -1,8 +1,8 @@
 import Header from "./Header";
 import styles from './layout.module.css';
-import './globals.css';
-import Navbar from "./components/Navbar";
 import { MyProvider } from './context/MyContext'
+import dynamic from 'next/dynamic'
+import './globals.css';
 
 export const metadata = {
   title: "Mobile App Mylinks",
@@ -14,6 +14,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const NavbarMobile = dynamic(() => import('./components/NavbarMobile'))
+  const NavbarWeb = dynamic(() => import('./components/NavbarWeb'))
+
   return (
     <html lang="en">
       <head>
@@ -23,7 +26,7 @@ export default function RootLayout({
         <MyProvider>
         <Header />
         <div className={styles.leftPlacement}>
-        <Navbar />
+        {process.env.PLATFORM === 'mobile' ? <NavbarMobile /> : <NavbarWeb />}
         </div>
         <div className={styles.rightPlacement}>
         {children}

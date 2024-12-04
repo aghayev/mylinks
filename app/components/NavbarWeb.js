@@ -1,7 +1,7 @@
 'use client'
 import Accordion from "./Accordion";
 import React, { useState, useEffect } from "react";
-import { isMobile } from "./../lib/utils";
+import { isMobile } from "../lib/utils";
 import { useMy } from "../context/MyContext";
 
 import "./Accordion.css";
