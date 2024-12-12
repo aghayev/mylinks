@@ -25,11 +25,13 @@ export default function RootLayout({
       <body>
         <MyProvider>
         <Header />
+        <div className={styles.content}>
         <div className={styles.leftPlacement}>
         {process.env.PLATFORM === 'mobile' ? <NavbarMobile /> : <NavbarWeb />}
         </div>
         <div className={styles.rightPlacement}>
         {children}
+        </div>
         </div>
         <div className={styles.trailer}>All rights reserved. Release version: local_build</div>
         </MyProvider>
